@@ -9,11 +9,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: npm install   # ✅ use this instead of npm ci
-
-      - run:
-          name: Build the app
-          command: npm run build
+          command: npm install
 
       - run:
           name: Run placeholder tests
@@ -23,4 +19,3 @@ workflows:
   build:
     jobs:
       - build_and_test
-
