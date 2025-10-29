@@ -3,17 +3,24 @@ version: 2.1
 jobs:
   build_and_test:
     docker:
-      - image: cimg/node:18.17
+      - image: cimg/node:18.17  # Official maintained Node.js image
     steps:
       - checkout
+
       - run:
           name: Install dependencies
-          command: npm install
+          command: npm ci
+
       - run:
           name: Run tests
           command: npm test
+
+      - run:
+          name: Build the app
+          command: npm run build
 
 workflows:
   build:
     jobs:
       - build_and_test
+
